@@ -11,15 +11,20 @@ INC = -I ./includes
 SRC_DIR = ./src/
 
 SRC = 	$(SRC_DIR)check_input.c \
-		$(SRC_DIR)fill_stack.c \
-		$(SRC_DIR)list_functions.c \
-		$(SRC_DIR)stack_a_operations.c \
-		$(SRC_DIR)stack_b_operations.c \
-		$(SRC_DIR)combined_operations.c \
 		$(SRC_DIR)push_swap.c \
-		$(SRC_DIR)select_sorter.c \
+		$(SRC_DIR)exit_message.c \
+		$(SRC_DIR)stack/fill_stack.c \
+		$(SRC_DIR)stack/stack_functions.c \
+		$(SRC_DIR)stack/stack_a_operations.c \
+		$(SRC_DIR)stack/stack_b_operations.c \
+		$(SRC_DIR)stack/combined_operations.c \
+		$(SRC_DIR)stack/indexer.c \
+		$(SRC_DIR)sorters/select_sorter.c \
 		$(SRC_DIR)sorters/sort_three.c \
-		$(SRC_DIR)sorters/check_sorted.c
+		$(SRC_DIR)sorters/check_sorted.c \
+		$(SRC_DIR)sorters/quick_sort.c \
+		$(SRC_DIR)sorters/big_sorter.c \
+		$(SRC_DIR)sorters/sort_utils.c
 
 OBJ = $(SRC:%.c=%.o)
 

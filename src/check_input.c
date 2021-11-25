@@ -1,72 +1,68 @@
 #include <push_swap.h>
 
-static int	check_all_digits(char **argv)
+int	check_duplicates(t_stack *stack_a)
 {
-	int	i;
-	int	j;
+	int				i;
+	t_stack_elem	*current;
+	t_stack_elem	*check;
 
-	i = 1;
-	while (argv[i])
+	i = 0;
+	check = stack_a->head;
+	while (i < stack_a->size)
 	{
-		j = 0;
-		while (argv[i][j])
+		current = check->next;
+		while (current != check)
 		{
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != '-')
+			if (current->nbr == check->nbr)
 				return (0);
-			j++;
+			current = current->next;
 		}
 		i++;
+		check = check->next;
 	}
 	return (1);
 }
 
-int	check_duplicates(int n, t_nbr_list *list)
+int	check_int(char *nbr_str)
 {
-	t_nbr_list	*temp;
-
-	temp = list;
-	while (temp)
-	{
-		if (temp->nbr == n)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
-
-int	nbr_len(char *nbr_str)
-{
-	int			len;
 	long long	temp_nbr;
 	int			min;
+	int			i;
+	int			len;
 
-	temp_nbr = 0;
+	i = 0;
 	len = 0;
+	temp_nbr = 0;
 	min = 1;
-	if (*nbr_str == '-')
-	{
+	while (nbr_str[i] == ' ')
+		i++;
+	if (nbr_str[i] == '-')
 		min = -1;
-		nbr_str++;
-	}
-	while (*nbr_str == '0')
-		nbr_str++;
-	while (*nbr_str)
+	if (nbr_str[i] == '+' || nbr_str[i] == '-')
+		i++;
+	while (ft_isdigit(nbr_str[i]))
 	{
-		temp_nbr = temp_nbr * 10 + (*nbr_str - 48);
 		len++;
-		nbr_str++;
+		temp_nbr = temp_nbr * 10 + (*nbr_str - 48);
+		if ((temp_nbr * min) > 2147483647 || (temp_nbr * min) < -2147483648)
+			return (0);
+		i++;
 	}
-	if ((temp_nbr * min) > 2147483647 || (temp_nbr * min) < -2147483648)
-		return (0);
-	return (len);
+	return (!nbr_str[i] && len);
 }
 
-t_nbr_list	*check_input(char **argv)
+t_stack	*check_input(char **argv)
 {
-	t_nbr_list	*stack_a;
+	t_stack	*stack_a;
 
-	if (!check_all_digits(argv))
-		return (0);
-	stack_a = fill_stack(argv);
+	stack_a = init_stack();
+	stack_a = fill_stack(argv, stack_a);
+	if (!check_duplicates(stack_a))
+	{
+		clear_stack(&stack_a);
+		exit_message("Contains Duplicates");
+	}
+	if (!stack_a->size)
+		exit_message("No numbers");
 	return (stack_a);
 }

@@ -2,7 +2,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_nbr_list	*stack_a;
+	t_stack	*stack_a;
 
 	if (argc < 2)
 	{
