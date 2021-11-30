@@ -1,29 +1,21 @@
-#include <push_swap.h>
-
-void	get_minimum(t_stack *stack_a)
-{
-	// int		i;
-	// int		min;
-	// t_stack	*temp;
-	if (stack_a)
-		ft_putendl_fd("get minimum", 1);
-}
+#include "push_swap.h"
 
 /*
  * Indexes the stack so that the smallest number
  * gets index 0 and biggest number gets index
- * stack size - 1 
+ * stack size - 1 this makes it much easier
+ * to use sorting algorithms (especially
+ * those that don't work with negatives)
  */
 void	indexer(t_stack	*stack_a)
 {
-	int	n;
+	int				index;
+	t_stack_elem	*current;
 
-	n = stack_a->head->nbr;
-	while (stack_a)
+	index = 0;
+	while (index < stack_a->size)
 	{
-		if (stack_a->head->nbr < n && stack_a->head->index == -1)
-		{
-			n = stack_a->head->nbr;
-		}
+		current = find_stack_min(stack_a, 1);
+		current->index = index++;
 	}
 }

@@ -24,7 +24,11 @@ SRC = 	$(SRC_DIR)check_input.c \
 		$(SRC_DIR)sorters/check_sorted.c \
 		$(SRC_DIR)sorters/quick_sort.c \
 		$(SRC_DIR)sorters/big_sorter.c \
-		$(SRC_DIR)sorters/sort_utils.c
+		$(SRC_DIR)sorters/sort_utils.c \
+		$(SRC_DIR)sorters/chunk_sort.c \
+		$(SRC_DIR)sorters/chunk_sort_utils.c \
+		$(SRC_DIR)sorters/radix_sort.c \
+		$(SRC_DIR)commands/com_list_functions.c 
 
 OBJ = $(SRC:%.c=%.o)
 

@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 /*
  * Checks for the 6 different ways the stack can be ordered.

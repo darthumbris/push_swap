@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 /*
  * checks if the stack is sorted correctly.

@@ -1,9 +1,9 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 /*
  * swaps the first two elements of stack a
  */
-void	swap_a(t_stack *stack_a, int ss)
+void	swap_a(t_stack *stack_a, int show)
 {
 	int	temp;
 
@@ -14,7 +14,7 @@ void	swap_a(t_stack *stack_a, int ss)
 			temp = stack_a->head->nbr;
 			stack_a->head->nbr = stack_a->head->next->nbr;
 			stack_a->head->next->nbr = temp;
-			if (!ss)
+			if (!show)
 				ft_putendl_fd("sa", 1);
 		}
 	}
@@ -24,7 +24,7 @@ void	swap_a(t_stack *stack_a, int ss)
  * push first element from stack_b and add to front of stack_a
  * do nothing if stack b is empty
  */
-void	push_a(t_stack *stack_a, t_stack *stack_b)
+void	push_a(t_stack *stack_a, t_stack *stack_b, int show)
 {
 	t_stack_elem	*current;
 	t_stack_elem	*tail;
@@ -39,7 +39,8 @@ void	push_a(t_stack *stack_a, t_stack *stack_b)
 	stack_b->head->prev = tail;
 	stack_b->size--;
 	free(current);
-	ft_putendl_fd("pa", 1);
+	if (!show)
+		ft_putendl_fd("pa", 1);
 	if (stack_b->size == 0)
 		stack_b->head = NULL;
 }
@@ -48,12 +49,12 @@ void	push_a(t_stack *stack_a, t_stack *stack_b)
  * Shifts up all elements of stack_a by 1 
  * the first element becomes the last one.
  */
-void	rotate_a(t_stack *stack_a, int rr)
+void	rotate_a(t_stack *stack_a, int show)
 {
 	if (stack_a)
 	{
 		stack_a->head = stack_a->head->next;
-		if (!rr)
+		if (!show)
 			ft_putendl_fd("ra", 1);
 	}
 }
@@ -62,12 +63,12 @@ void	rotate_a(t_stack *stack_a, int rr)
  * Shifts down all elements of stack_a by 1 
  * the last element becomes the first one.
  */
-void	reverse_rotate_a(t_stack *stack_a, int rrr)
+void	reverse_rotate_a(t_stack *stack_a, int show)
 {
 	if (stack_a)
 	{
 		stack_a->head = stack_a->head->prev;
-		if (!rrr)
+		if (!show)
 			ft_putendl_fd("rra", 1);
 	}
 }

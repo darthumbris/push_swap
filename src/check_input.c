@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 int	check_duplicates(t_stack *stack_a)
 {

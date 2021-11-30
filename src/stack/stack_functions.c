@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 t_stack	*init_stack(void)
 {
@@ -8,7 +8,6 @@ t_stack	*init_stack(void)
 	if (!stack)
 		exit_message("Malloc Failure");
 	stack->head = NULL;
-	stack->markup_head = NULL;
 	stack->size = 0;
 	return (stack);
 }

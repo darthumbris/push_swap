@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "push_swap.h"
 
 /*
  * This function checks how many elements of the stack
@@ -48,8 +48,12 @@ static int	find_pivot(t_stack *stack_a)
 }
 
 /*
- * Uses the quicksort algorithm to sort stack_a
- * using stack_b.
+ * Uses a pivot point to push the elements 
+ * smaller than the pivot to stack_b
+ * until there are only three elements left in stack_a
+ * then it will either rotate_b if needed and
+ * then push_a to get all the 
+ * elements from stack_b back in the correct spot.
  */
 void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 {
@@ -65,7 +69,7 @@ void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 		{
 			if (stack_a->head->nbr < pivot)
 			{
-				push_b(stack_a, stack_b);
+				push_b(stack_a, stack_b, 0);
 				i--;
 			}
 			else
@@ -77,5 +81,5 @@ void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->head->nbr != max_stack_b)
 		rotate_b(stack_b, 0);
 	while (stack_b->size)
-		push_a(stack_a, stack_b);
+		push_a(stack_a, stack_b, 0);
 }
