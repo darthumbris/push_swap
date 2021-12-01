@@ -13,7 +13,7 @@ t_stack	*fill_stack(char **argv, t_stack *stack_a)
 			exit_message("Contains invalid numbers");
 			return (NULL);
 		}
-		add_to_stack_back(stack_a, new_stack_element(ft_atoi(argv[i])));
+		add_to_stack_back(stack_a, new_stack_element(ft_atoi(argv[i]), -1));
 		i++;
 	}
 	return (stack_a);

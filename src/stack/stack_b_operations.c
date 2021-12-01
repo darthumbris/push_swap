@@ -6,14 +6,18 @@
 void	swap_b(t_stack *stack_b, int show)
 {
 	int	temp;
+	int	temp_index;
 
 	if (stack_b)
 	{
 		if (stack_b->head->next)
 		{
 			temp = stack_b->head->nbr;
+			temp_index = stack_b->head->index;
+			stack_b->head->index = stack_b->head->next->index;
 			stack_b->head->nbr = stack_b->head->next->nbr;
 			stack_b->head->next->nbr = temp;
+			stack_b->head->next->index = temp_index;
 			if (!show)
 				ft_putendl_fd("sb", 1);
 		}
@@ -33,7 +37,8 @@ void	push_b(t_stack *stack_a, t_stack *stack_b, int show)
 		return ;
 	current = stack_a->head;
 	tail = stack_a->head->prev;
-	add_to_stack_front(stack_b, new_stack_element(stack_a->head->nbr));
+	add_to_stack_front(stack_b, new_stack_element
+		(stack_a->head->nbr, stack_a->head->index));
 	stack_a->head = stack_a->head->next;
 	tail->next = stack_a->head;
 	stack_a->head->prev = tail;

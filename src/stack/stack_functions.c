@@ -79,7 +79,7 @@ void	clear_stack(t_stack **stack)
 	free(*stack);
 }
 
-t_stack_elem	*new_stack_element(int nbr)
+t_stack_elem	*new_stack_element(int nbr, int index)
 {
 	t_stack_elem	*new;
 
@@ -87,7 +87,7 @@ t_stack_elem	*new_stack_element(int nbr)
 	if (!new)
 		exit_message("Malloc Failure");
 	new->nbr = nbr;
-	new->index = -1;
+	new->index = index;
 	new->next = NULL;
 	new->prev = NULL;
 	new->keep = 0;

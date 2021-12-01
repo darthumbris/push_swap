@@ -15,7 +15,7 @@ void	indexer(t_stack	*stack_a)
 	index = 0;
 	while (index < stack_a->size)
 	{
-		current = find_stack_min(stack_a, 1);
+		current = find_stack_min_next(stack_a);
 		current->index = index++;
 	}
 }

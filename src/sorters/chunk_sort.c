@@ -71,7 +71,7 @@ static int	get_chunk_step(t_stack *stack_a)
 	int	max;
 
 	max = find_stack_max(stack_a);
-	min = find_stack_min(stack_a, 0)->nbr;
+	min = find_stack_min(stack_a);
 	if (stack_a->size <= 100)
 		step = ((max - min) / 5) + 1;
 	if (stack_a->size > 100)
@@ -89,7 +89,7 @@ t_com_list	*chunk_sort(t_stack *stack_a)
 
 	stack_b = init_stack();
 	chunk_step = get_chunk_step(stack_a);
-	chunk_hold = find_stack_min(stack_a, 0)->nbr + chunk_step;
+	chunk_hold = find_stack_min(stack_a) + chunk_step;
 	i = stack_a->size;
 	com_list = init_com_list();
 	while (i)

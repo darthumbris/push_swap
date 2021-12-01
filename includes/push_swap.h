@@ -37,13 +37,14 @@ int				check_duplicates(t_stack *stack_a);
 int				check_int(char *nbr_str);
 //----------stack-functions---------------------
 t_stack			*init_stack(void);
-t_stack_elem	*new_stack_element(int nbr);
+t_stack_elem	*new_stack_element(int nbr, int index);
 void			clear_stack(t_stack **stack);
 t_stack			*fill_stack(char **argv, t_stack *stack_a);
 void			add_to_stack_back(t_stack *stack, t_stack_elem *elem);
 void			add_to_stack_front(t_stack *stack, t_stack_elem *elem);
 int				find_stack_max(t_stack *stack);
-t_stack_elem	*find_stack_min(t_stack *stack, int next);
+int				find_stack_min(t_stack *stack);
+t_stack_elem	*find_stack_min_next(t_stack *stack);
 //---------sorter-utils-------------------------
 void			select_sorter(t_stack *stack_a_index, t_stack *stack_a_greater);
 int				check_sorted(t_stack *stack_a);

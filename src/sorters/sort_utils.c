@@ -23,6 +23,25 @@ int	find_stack_max(t_stack *stack)
 	return (max);
 }
 
+int	find_stack_min(t_stack *stack)
+{
+	int				i;
+	int				min;
+	t_stack_elem	*temp;
+
+	i = stack->size;
+	min = 2147483647;
+	temp = stack->head;
+	while (i)
+	{
+		if (min > temp->nbr)
+			min = temp->nbr;
+		temp = temp->next;
+		i--;
+	}
+	return (min);
+}
+
 /*
  * This function will find the minimum value
  * in the stack and return the element with that 
@@ -30,28 +49,28 @@ int	find_stack_max(t_stack *stack)
  * will find the element with a minimum value
  * that hasn't been indexed yet.
  */
-t_stack_elem	*find_stack_min(t_stack *stack, int next)
+t_stack_elem	*find_stack_min_next(t_stack *stack)
 {
-	int				i;
+	int				bool_i;
 	t_stack_elem	*current;
 	t_stack_elem	*min;
+	int				i;
 
 	min = NULL;
-	if (stack)
+	bool_i = 0;
+	current = stack->head;
+	i = 0;
+	if (current)
 	{
-		i = 0;
-		current = stack->head;
-		while (i < stack->size)
+		while (current && i < stack->size)
 		{
-			if (!next)
+			if ((current->index == -1) && (!bool_i || current->nbr < min->nbr))
 			{
-				if (!min || current->nbr < min->nbr)
-					min = current;
-			}
-			else if (current->index == -1 && (!min || current->nbr < min->nbr))
 				min = current;
-			i++;
+				bool_i = 1;
+			}
 			current = current->next;
+			i++;
 		}
 	}
 	return (min);
