@@ -73,5 +73,5 @@ void	clear_com_list(t_com_list **com_list)
 		free(delete);
 		i++;
 	}
-	free(com_list);
+	free(*com_list);
 }

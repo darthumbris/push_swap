@@ -98,8 +98,8 @@ t_com_list	*chunk_sort(t_stack *stack_a)
 		chunk_hold += chunk_step;
 		i = stack_a->size;
 	}
-	stack_a->head = NULL;
 	while (stack_b->size)
 		empty_stack_b(stack_a, stack_b, com_list);
+	clear_stack(&stack_b);
 	return (com_list);
 }

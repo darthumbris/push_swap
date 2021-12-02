@@ -34,12 +34,13 @@ void	radix_loop(t_stack *stack_a, t_stack *stack_b, \
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j++ < size)
+		while (j < size)
 		{
 			if ((((stack_a->head->index) >> i) & 1) == 1)
 				rotate_a_comm(stack_a, com_list);
 			else
 				push_b_comm(stack_a, stack_b, com_list);
+			j++;
 		}
 		empty_stack_b_simple(stack_a, stack_b, com_list);
 		i++;
@@ -58,7 +59,8 @@ t_com_list	*radix_sort(t_stack *stack_a)
 	max_bits = 0;
 	max_num = stack_a->size - 1;
 	while ((max_num >> max_bits) != 0)
-		++max_bits;
+		max_bits++;
 	radix_loop(stack_a, stack_b, com_list, max_bits);
+	clear_stack(&stack_b);
 	return (com_list);
 }

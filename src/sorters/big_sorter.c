@@ -20,9 +20,7 @@ void	big_sorter(t_stack *stack_a_chunk, t_stack *stack_a_radix)
 			print_com_list(commands_chunk);
 		else
 			print_com_list(commands_radix);
-		free(commands_radix);
-		free(commands_chunk);
-		free(stack_a_radix);
-		free(stack_a_chunk);
+		clear_com_list(&commands_chunk);
+		clear_com_list(&commands_radix);
 	}
 }

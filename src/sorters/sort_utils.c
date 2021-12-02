@@ -10,15 +10,15 @@ int	find_stack_max(t_stack *stack)
 	int				max;
 	t_stack_elem	*temp;
 
-	i = stack->size;
+	i = 0;
 	max = -2147483648;
 	temp = stack->head;
-	while (i)
+	while (i < stack->size)
 	{
 		if (max < temp->nbr)
 			max = temp->nbr;
 		temp = temp->next;
-		i--;
+		i++;
 	}
 	return (max);
 }
@@ -29,15 +29,15 @@ int	find_stack_min(t_stack *stack)
 	int				min;
 	t_stack_elem	*temp;
 
-	i = stack->size;
+	i = 0;
 	min = 2147483647;
 	temp = stack->head;
-	while (i)
+	while (i < stack->size)
 	{
 		if (min > temp->nbr)
 			min = temp->nbr;
 		temp = temp->next;
-		i--;
+		i++;
 	}
 	return (min);
 }

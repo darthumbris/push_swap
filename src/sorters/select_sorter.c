@@ -22,8 +22,10 @@ void	select_sorter(t_stack *stack_a_index, t_stack *stack_a_greater)
 	{
 		stack_b = init_stack();
 		quick_sort(stack_a_index, stack_b);
-		free(stack_b);
+		clear_stack(&stack_b);
 	}
 	else
 		big_sorter(stack_a_index, stack_a_greater);
+	clear_stack(&stack_a_index);
+	clear_stack(&stack_a_greater);
 }
