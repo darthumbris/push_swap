@@ -9,7 +9,8 @@ void	print_com_list(t_com_list *com_list)
 		temp = com_list->head;
 		while (temp)
 		{
-			ft_putendl_fd(temp->operation, 1);
+			if (temp->print)
+				ft_putendl_fd(temp->operation, 1);
 			temp = temp->next;
 		}
 	}
@@ -54,7 +55,8 @@ t_commands	*new_command(char	*operation)
 	if (!new)
 		exit_message("Malloc Failure");
 	new->next = NULL;
-	new->operation = operation;
+	new->operation = ft_strdup(operation);
+	new->print = 1;
 	return (new);
 }
 
@@ -70,6 +72,7 @@ void	clear_com_list(t_com_list **com_list)
 	{
 		delete = head;
 		head = head->next;
+		free(delete->operation);
 		free(delete);
 		i++;
 	}

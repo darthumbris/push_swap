@@ -25,21 +25,14 @@ void	empty_stack_b(t_stack *stack_a, t_stack *stack_b, t_com_list *com_list)
 	if (check_in_chunk_halve(stack_b, max))
 	{
 		while (stack_b->head->nbr != max)
-		{
-			add_command(com_list, new_command("rb"));
-			rotate_b(stack_b, 1);
-		}
+			rotate_b_comm(stack_b, com_list);
 	}
 	else
 	{
 		while (stack_b->head->nbr != max)
-		{
-			add_command(com_list, new_command("rrb"));
-			reverse_rotate_b(stack_b, 1);
-		}
+			rrb_com(stack_b, com_list);
 	}
-	add_command(com_list, new_command("pa"));
-	push_a(stack_a, stack_b, 1);
+	push_a_comm(stack_a, stack_b, com_list);
 }
 
 int	count_ra_moves(t_stack *stack_a)

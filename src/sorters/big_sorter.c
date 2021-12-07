@@ -16,6 +16,7 @@ void	big_sorter(t_stack *stack_a_chunk, t_stack *stack_a_radix)
 		indexer(stack_a_radix);
 		commands_chunk = chunk_sort(stack_a_chunk);
 		commands_radix = radix_sort(stack_a_radix);
+		improve_radix_commands(commands_radix->head, commands_radix->size);
 		if (commands_radix->size > commands_chunk->size)
 			print_com_list(commands_chunk);
 		else

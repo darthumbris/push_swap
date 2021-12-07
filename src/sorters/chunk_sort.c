@@ -12,8 +12,7 @@ static void	smart_move_to_top_stacka(t_stack *stack_a, t_com_list *com_list)
 		while (ra_moves)
 		{
 			ra_moves--;
-			add_command(com_list, new_command("ra"));
-			rotate_a(stack_a, 1);
+			rotate_a_comm(stack_a, com_list);
 		}
 	}
 	else
@@ -21,8 +20,7 @@ static void	smart_move_to_top_stacka(t_stack *stack_a, t_com_list *com_list)
 		while (rra_moves)
 		{
 			rra_moves--;
-			add_command(com_list, new_command("rra"));
-			reverse_rotate_a(stack_a, 1);
+			rra_com(stack_a, com_list);
 		}
 	}
 }
@@ -58,8 +56,7 @@ static void	move_top_to_stackb(t_stack *stack_a, t_stack *stack_b, \
 	while (i)
 	{
 		smart_move_to_top_stacka(stack_a, com_list);
-		add_command(com_list, new_command("pb"));
-		push_b(stack_a, stack_b, 1);
+		push_b_comm(stack_a, stack_b, com_list);
 		i--;
 	}
 }
@@ -73,9 +70,9 @@ static int	get_chunk_step(t_stack *stack_a)
 	max = find_stack_max(stack_a);
 	min = find_stack_min(stack_a);
 	if (stack_a->size <= 100)
-		step = ((max - min) / 5) + 1;
+		step = ((max - min) / 6) + 1;
 	if (stack_a->size > 100)
-		step = ((max - min) / 11) + 1;
+		step = ((max - min) / 10) + 1;
 	return (step);
 }
 

@@ -26,16 +26,16 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJ)
+	@ar -crs $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc $(FLAGS) -o $@ $<
+	@gcc $(FLAGS) -o $@ $<
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	@rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

@@ -4,22 +4,7 @@ static void	empty_stack_b_simple(t_stack *stack_a, t_stack *stack_b, \
 									t_com_list *com_list)
 {
 	while (stack_b->size)
-	{
-		push_a(stack_a, stack_b, 1);
-		add_command(com_list, new_command("pa"));
-	}
-}
-
-static void	rotate_a_comm(t_stack *stack_a, t_com_list *com_list)
-{
-	rotate_a(stack_a, 1);
-	add_command(com_list, new_command("ra"));
-}
-
-void	push_b_comm(t_stack *stack_a, t_stack *stack_b, t_com_list *com_list)
-{
-	push_b(stack_a, stack_b, 1);
-	add_command(com_list, new_command("pb"));
+		push_a_comm(stack_a, stack_b, com_list);
 }
 
 void	radix_loop(t_stack *stack_a, t_stack *stack_b, \
