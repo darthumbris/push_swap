@@ -1,5 +1,8 @@
 NAME = libft.a
+
 FLAGS = -Wall -Werror -Wextra -c
+
+OBJ_DIR = obj
 
 SRC = 	ft_atoi.c ft_bzero.c ft_calloc.c ft_itoa.c\
 		ft_isalnum.c ft_isalpha.c ft_isascii.c \
@@ -19,20 +22,21 @@ SRC = 	ft_atoi.c ft_bzero.c ft_calloc.c ft_itoa.c\
 		ft_lstiter.c ft_lstlast.c \
 		ft_lstmap.c ft_lstnew.c ft_lstsize.c
 
-HEADER = libft.h
+INC = -I ../../includes
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst %,$(OBJ_DIR)/%,$(SRC:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar -crs $(NAME) $(OBJ)
 
-%.o: %.c
-	@gcc $(FLAGS) -o $@ $<
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@gcc $(FLAGS) $(INC) -o $@ $<
 
 clean:
-	@rm -f $(OBJ) $(BONUS_OBJ)
+	@rm -rf $(OBJ_DIR)
 
 fclean:	clean
 	@rm -f $(NAME)

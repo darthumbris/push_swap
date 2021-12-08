@@ -19,6 +19,5 @@ int	main(int argc, char **argv)
 		ft_putendl_fd("Error", 1);
 		return (EXIT_FAILURE);
 	}
-	//system("leaks push_swap");
 	return (EXIT_SUCCESS);
 }

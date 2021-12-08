@@ -31,7 +31,8 @@ typedef struct s_com_list
 	int			size;
 }				t_com_list;
 
-void			exit_message(char *msg);
+void			exit_message(char *msg, t_stack *stack_a, t_com_list *list, \
+							t_stack *stack_b);
 //---------Parse functions--------------------
 t_stack			*check_input(char **argv);
 int				check_duplicates(t_stack *stack_a);

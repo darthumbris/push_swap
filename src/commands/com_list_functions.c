@@ -53,7 +53,7 @@ t_commands	*new_command(char	*operation)
 
 	new = malloc(sizeof(t_commands));
 	if (!new)
-		exit_message("Malloc Failure");
+		return (NULL);
 	new->next = NULL;
 	new->operation = ft_strdup(operation);
 	new->print = 1;

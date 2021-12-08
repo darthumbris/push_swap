@@ -13,6 +13,8 @@ void	indexer(t_stack	*stack_a)
 	t_stack_elem	*current;
 
 	index = 0;
+	if (!stack_a)
+		return ;
 	while (index < stack_a->size)
 	{
 		current = find_stack_min_next(stack_a);

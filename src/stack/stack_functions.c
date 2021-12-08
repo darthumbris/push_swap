@@ -6,7 +6,7 @@ t_stack	*init_stack(void)
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		exit_message("Malloc Failure");
+		return (NULL);
 	stack->head = NULL;
 	stack->size = 0;
 	return (stack);
@@ -85,7 +85,7 @@ t_stack_elem	*new_stack_element(int nbr, int index)
 
 	new = malloc(sizeof(*new));
 	if (!new)
-		exit_message("Malloc Failure");
+		return (NULL);
 	new->nbr = nbr;
 	new->index = index;
 	new->next = NULL;

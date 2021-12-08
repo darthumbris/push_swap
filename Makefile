@@ -1,6 +1,6 @@
 NAME = push_swap
 
-FLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+FLAGS = -Wall -Werror -Wextra -g
 
 LIBFT_DIR = ./libs/libft
 SRC_DIR = src
