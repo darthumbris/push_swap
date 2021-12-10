@@ -86,13 +86,13 @@ t_com_list	*chunk_sort(t_stack *stack_a)
 
 	stack_b = init_stack();
 	if (!stack_b)
-		exit_message("Malloc Failure", stack_a, NULL, NULL);
+		exit_message("Error", stack_a, NULL, NULL);
 	chunk_step = get_chunk_step(stack_a);
 	chunk_hold = find_stack_min(stack_a) + chunk_step;
 	i = stack_a->size;
 	com_list = init_com_list();
 	if (!com_list)
-		exit_message("Malloc Failure", stack_a, NULL, stack_b);
+		exit_message("Error", stack_a, NULL, stack_b);
 	while (i)
 	{
 		move_top_to_stackb(stack_a, stack_b, com_list, chunk_hold);

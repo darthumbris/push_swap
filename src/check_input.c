@@ -57,11 +57,11 @@ t_stack	*check_input(char **argv)
 
 	stack_a = init_stack();
 	if (!stack_a)
-		exit_message("Malloc Failure", NULL, NULL, NULL);
+		exit_message("Error", NULL, NULL, NULL);
 	stack_a = fill_stack(argv, stack_a);
 	if (!check_duplicates(stack_a))
-		exit_message("Contains Duplicates", stack_a, NULL, NULL);
+		exit_message("Error", stack_a, NULL, NULL);
 	if (!stack_a->size)
-		exit_message("No numbers", stack_a, NULL, NULL);
+		exit_message("Error", stack_a, NULL, NULL);
 	return (stack_a);
 }

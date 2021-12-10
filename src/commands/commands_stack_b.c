@@ -17,7 +17,7 @@ void	rrb_com(t_stack *stack_b, t_com_list *com_list)
 
 	new = new_command("rrb");
 	if (!new)
-		exit_message("Malloc Failure", stack_b, com_list, NULL);
+		exit_message("Error", stack_b, com_list, NULL);
 	add_command(com_list, new);
 	reverse_rotate_a(stack_b, 1);
 }
@@ -28,7 +28,7 @@ void	push_b_comm(t_stack *stack_a, t_stack *stack_b, t_com_list *com_list)
 
 	new = new_command("pb");
 	if (!new)
-		exit_message("Malloc Failure", stack_a, com_list, stack_b);
+		exit_message("Error", stack_a, com_list, stack_b);
 	push_b(stack_a, stack_b, 1);
 	add_command(com_list, new);
 }
@@ -39,7 +39,7 @@ void	swap_b_com(t_stack *stack_b, t_com_list *com_list)
 
 	new = new_command("sb");
 	if (!new)
-		exit_message("Malloc Failure", stack_b, com_list, NULL);
+		exit_message("Error", stack_b, com_list, NULL);
 	add_command(com_list, new);
 	swap_a(stack_b, 1);
 }

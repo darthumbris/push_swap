@@ -41,10 +41,10 @@ t_com_list	*radix_sort(t_stack *stack_a)
 
 	stack_b = init_stack();
 	if (!stack_b)
-		exit_message("Malloc Failure", stack_a, NULL, NULL);
+		exit_message("Error", stack_a, NULL, NULL);
 	com_list = init_com_list();
 	if (!com_list)
-		exit_message("Malloc Failure", stack_a, NULL, stack_b);
+		exit_message("Error", stack_a, NULL, stack_b);
 	max_bits = 0;
 	max_num = stack_a->size - 1;
 	while ((max_num >> max_bits) != 0)
