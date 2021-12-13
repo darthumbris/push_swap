@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   chunk_sort.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: shoogenb <shoogenb@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/13 09:38:30 by shoogenb      #+#    #+#                 */
+/*   Updated: 2021/12/13 09:38:30 by shoogenb      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	smart_move_to_top_stacka(t_stack *stack_a, t_com_list *com_list)

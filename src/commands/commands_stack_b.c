@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   commands_stack_b.c                                 :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: shoogenb <shoogenb@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/13 09:39:05 by shoogenb      #+#    #+#                 */
+/*   Updated: 2021/12/13 09:39:06 by shoogenb      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rotate_b_comm(t_stack *stack_b, t_com_list *com_list)

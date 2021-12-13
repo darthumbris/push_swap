@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   com_list_functions.c                               :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: shoogenb <shoogenb@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/13 09:38:58 by shoogenb      #+#    #+#                 */
+/*   Updated: 2021/12/13 09:38:59 by shoogenb      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	print_com_list(t_com_list *com_list)

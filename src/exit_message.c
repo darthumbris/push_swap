@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   exit_message.c                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: shoogenb <shoogenb@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/12/13 09:36:36 by shoogenb      #+#    #+#                 */
+/*   Updated: 2021/12/13 09:36:36 by shoogenb      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	exit_message(char *msg, t_stack *stack_a, t_com_list *list, \
